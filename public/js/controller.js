@@ -7,6 +7,7 @@ import addTodoView from './Views/addTodoView.js';
 import deleteTodoView from './Views/deleteTodoView.js';
 import dragDropView from './Views/dragDropView.js';
 import sidebarView from './Views/sidebarView.js';
+import editTodoView from './Views/editTodoView.js';
 
 const controlShowTodo = async function() {
     await model.loadTodos();
@@ -14,6 +15,7 @@ const controlShowTodo = async function() {
     todoView.render(todos.todo);
     progressView.render(todos.progress);
     doneView.render(todos.done);
+    console.log(todos);
 };
 
 const controlAddTodo = function() {
@@ -47,11 +49,22 @@ const controlDragnDrop = function(id, status) {
     }
 }
 
+const controlEditTodo = function(id, title, date) {
+    const changeTodo = model.state.todos.findIndex(el => el.id === +id);
+    try {
+        model.editTodo(changeTodo, title, date);
+    } catch(err) {
+        console.error(err);
+    }
+    controlShowTodo();
+};
+
 const init = function() {
     previewView.addHandlerRender(controlShowTodo);
     addTodoView.addHandlerClick(controlAddTodo);
     deleteTodoView.addHandlerDelete(controlDeleteTodo);
     dragDropView.addHandlerDragOver(controlDragnDrop);
     sidebarView.toggleSidebar();
+    editTodoView.addHandlerEdit(controlEditTodo);
 };
 init();

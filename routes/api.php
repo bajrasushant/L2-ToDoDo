@@ -25,3 +25,5 @@ Route::post('/todos', 'App\Http\Controllers\TododoController@createTodo');
 Route::delete('/todos/{id}', 'App\Http\Controllers\TododoController@deleteTodo');
 
 Route::patch('/todos/{id}', 'App\Http\Controllers\TododoController@updateTodo');
+
+Route::put('/todos/{id}', 'App\Http\Controllers\TododoController@editTodo');

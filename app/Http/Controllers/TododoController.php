@@ -19,7 +19,7 @@ class TododoController extends Controller
     public function createTodo(Request $request){
         $todo = new Tododo();
         $todo->title = $request->title;
-        $todo->deadline = date('Y-m-d H:i:s', strtotime($request->deadline));
+        $todo->deadline = date('Y-m-d', strtotime($request->deadline));
         $todo->tag = $request->tag;
         $todo->status = $request->status;
         $todo->save();
@@ -42,6 +42,18 @@ class TododoController extends Controller
     public function updateTodo (Request $request){
         $todo = Tododo::find($request->id);
         $todo->status = $request->status;
+        $todo->save();
+
+        return response()->json([
+            'message' => 'Todo updated successfully',
+            'data' => $todo
+        ], 200);
+    }
+
+    public function editTodo (Request $request){
+        $todo = Tododo::find($request->id);
+        $todo->title = $request->title;
+        $todo->deadline = date('Y-m-d', strtotime($request->deadline));
         $todo->save();
 
         return response()->json([

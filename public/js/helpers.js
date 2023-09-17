@@ -13,3 +13,7 @@ export const catTodos = function() {
 
     return { todo, progress, done };
 }
+
+export const getTodo = function(id) {
+    return model.state.todos.find(el => el.id === +id);
+}

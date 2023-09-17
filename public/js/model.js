@@ -57,7 +57,6 @@ export const removeTodoFromState = async function(index) {
 
 export const updateTodoStatus = async function(index, status) {
     try {
-        console.log(index);
         const res = await fetch(`http://localhost:8000/api/todos/${state.todos[index].id}`, {
             method: 'PATCH',
             headers: {
@@ -72,3 +71,21 @@ export const updateTodoStatus = async function(index, status) {
         console.error(err);
     }
 }
+
+export const editTodo = async function(index, title, date) {
+    try {
+        console.log(index, title);
+        const res = await fetch(`http://localhost:8000/api/todos/${state.todos[index].id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ title, deadline: date }),
+        });
+        if(!res.ok) throw new Error('Could not update todo');
+        const data = await res.json();
+        console.log('Todo updated', data);
+    } catch (err) {
+        console.error(err);
+    }
+};
