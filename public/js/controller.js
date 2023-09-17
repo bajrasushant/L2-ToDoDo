@@ -6,6 +6,7 @@ import previewView from './Views/previewView.js';
 import addTodoView from './Views/addTodoView.js';
 import deleteTodoView from './Views/deleteTodoView.js';
 import dragDropView from './Views/dragDropView.js';
+import sidebarView from './Views/sidebarView.js';
 
 const controlShowTodo = async function() {
     await model.loadTodos();
@@ -51,5 +52,6 @@ const init = function() {
     addTodoView.addHandlerClick(controlAddTodo);
     deleteTodoView.addHandlerDelete(controlDeleteTodo);
     dragDropView.addHandlerDragOver(controlDragnDrop);
+    sidebarView.toggleSidebar();
 };
 init();
