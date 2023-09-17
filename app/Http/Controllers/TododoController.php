@@ -38,4 +38,15 @@ class TododoController extends Controller
             'message' => 'Todo deleted successfully'
         ], 200);
     }
+
+    public function updateTodo (Request $request){
+        $todo = Tododo::find($request->id);
+        $todo->status = $request->status;
+        $todo->save();
+
+        return response()->json([
+            'message' => 'Todo updated successfully',
+            'data' => $todo
+        ], 200);
+    }
 }

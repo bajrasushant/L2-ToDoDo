@@ -5,6 +5,7 @@ import { todoView, progressView, doneView } from './Views/boardView.js';
 import previewView from './Views/previewView.js';
 import addTodoView from './Views/addTodoView.js';
 import deleteTodoView from './Views/deleteTodoView.js';
+import dragDropView from './Views/dragDropView.js';
 
 const controlShowTodo = async function() {
     await model.loadTodos();
@@ -36,9 +37,19 @@ const controlDeleteTodo = function(id) {
     controlShowTodo();
 }
 
+const controlDragnDrop = function(id, status) {
+    const changeTodo = model.state.todos.findIndex(el => el.id === +id);
+    try {
+        model.updateTodoStatus(changeTodo, status);
+    } catch(err) {
+        console.error(err);
+    }
+}
+
 const init = function() {
     previewView.addHandlerRender(controlShowTodo);
     addTodoView.addHandlerClick(controlAddTodo);
     deleteTodoView.addHandlerDelete(controlDeleteTodo);
+    dragDropView.addHandlerDragOver(controlDragnDrop);
 };
 init();
