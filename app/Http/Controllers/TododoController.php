@@ -29,4 +29,13 @@ class TododoController extends Controller
             'data' => $todo
         ], 200);
     }
+
+    public function deleteTodo (Request $request){
+        $todo = Tododo::find($request->id);
+        $todo->delete();
+
+        return response()->json([
+            'message' => 'Todo deleted successfully'
+        ], 200);
+    }
 }

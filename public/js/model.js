@@ -41,3 +41,16 @@ export const addTodoToState = async function(todo) {
         console.error(err);
     }
 }
+
+export const removeTodoFromState = async function(index) {
+    try {
+        const res = await fetch(`http://localhost:8000/api/todos/${state.todos[index].id}`, {
+            method: 'DELETE',
+        });
+        if(!res.ok) throw new Error('Could not delete todo');
+        const data = await res.json();
+        console.log('Todo deleted', data);
+    } catch (err) {
+        console.error(err);
+    }
+}
