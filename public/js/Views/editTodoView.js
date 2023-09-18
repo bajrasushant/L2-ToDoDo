@@ -35,7 +35,12 @@ class EditTodoView {
     }.bind(this)); // use bind or else use an arrow function
     this._confirmEditBtn.addEventListener('click', () => {
       const newTitle = this._editTitleInput.textContent;
-      const newDate = this._editCalendar.value;
+      const newDate = new Date(this._editCalendar.value);
+        const currentDate = new Date();
+        if (newDate.setHours(0,0,0,30) < currentDate.setHours(0,0,0,30)) {
+            alert('Please select a date in the future');
+            return;
+        }
       this._toggleConfirmActive();
       handler(editTodoId, newTitle, newDate);
     });
