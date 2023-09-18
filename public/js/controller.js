@@ -10,12 +10,14 @@ import sidebarView from './Views/sidebarView.js';
 import editTodoView from './Views/editTodoView.js';
 
 const controlShowTodo = async function() {
+    todoView.renderSpinner();
+    progressView.renderSpinner();
+    doneView.renderSpinner();
     await model.loadTodos();
     const todos = catTodos();
     todoView.render(todos.todo);
     progressView.render(todos.progress);
     doneView.render(todos.done);
-    console.log(todos);
 };
 
 const controlAddTodo = function() {

@@ -20,3 +20,4 @@ export class DoneView extends BoardView {
 export const todoView = new TodoView();
 export const progressView = new ProgressView();
 export const doneView = new DoneView();
+export const boardView = new BoardView();

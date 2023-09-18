@@ -114,7 +114,7 @@ h5{
   align-items: center;
   padding-left: 12px;
   border-left: 2px solid #ddd;
-
+}
   img {
     width: 32px;
     height: 32px;
@@ -129,7 +129,7 @@ h5{
     line-height: 24px;
     font-weight: 700;
   }
-}
+
 
 .text-muted{
   color: var(--link-color);
@@ -307,4 +307,26 @@ aside .sidebar a.active span{
 
 .close .sidebar-text {
   opacity: 0; /* hide the text when collapsed */
+}
+
+.spinner {
+    margin: 5rem auto;
+    text-align: center;
+}
+
+.spinner svg {
+    height: 6rem;
+    width: 6rem;
+    fill: var(--main-color);
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
