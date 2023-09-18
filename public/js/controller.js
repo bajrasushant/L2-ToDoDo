@@ -15,46 +15,47 @@ const controlShowTodo = async function() {
     doneView.renderSpinner();
     await model.loadTodos();
     const todos = catTodos();
+    console.log(todos);
     todoView.render(todos.todo);
     progressView.render(todos.progress);
     doneView.render(todos.done);
 };
 
-const controlAddTodo = function() {
+const controlAddTodo = async function() {
     const todo = addTodoView.getTodo();
     if (!todo) return controlShowTodo();
     console.log(todo);
     try {
-        model.addTodoToState(todo);
+        await model.addTodoToState(todo);
     } catch (err) {
         console.error(err);
     }
     controlShowTodo();
 };
 
-const controlDeleteTodo = function(id) {
+const controlDeleteTodo = async function(id) {
     try {
         const indexToDel = model.state.todos.findIndex(el => el.id === +id);
-        model.removeTodoFromState(indexToDel);
+        await model.removeTodoFromState(indexToDel);
     } catch(err) {
         console.error(err);
     };
     controlShowTodo();
 }
 
-const controlDragnDrop = function(id, status) {
+const controlDragnDrop = async function(id, status) {
     const changeTodo = model.state.todos.findIndex(el => el.id === +id);
     try {
-        model.updateTodoStatus(changeTodo, status);
+        await model.updateTodoStatus(changeTodo, status);
     } catch(err) {
         console.error(err);
     }
 }
 
-const controlEditTodo = function(id, title, date) {
+const controlEditTodo = async function(id, title, date) {
     const changeTodo = model.state.todos.findIndex(el => el.id === +id);
     try {
-        model.editTodo(changeTodo, title, date);
+        await model.editTodo(changeTodo, title, date);
     } catch(err) {
         console.error(err);
     }

@@ -10,18 +10,18 @@ export default class View {
     }
 
     _clear() {
-        this._parentElement.innerHTML = '';
-    }
+            this._parentElement.innerHTML = '';
+        }
 
     renderSpinner() {
-        const markup = `
+            const markup = `
       <div class="spinner">
         <svg>
           <use href="../../img/icons.svg#icon-loader"></use>
         </svg>
       </div>
     `;
-        this._clear();
-        this._parentElement.insertAdjacentHTML('afterbegin', markup);
-    };
-}
+            this._clear();
+            this._parentElement.insertAdjacentHTML('afterbegin', markup);
+        };
+    }
