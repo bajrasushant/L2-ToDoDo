@@ -1,16 +1,9 @@
+import { AJAX } from './helpers.js';
+import { API_URL } from './config.js';
+
 export const state = {
     todos: [],
 };
-
-export const loadTodos = async function() {
-    try {
-        const res = await fetch('http://localhost:8000/api/todos');
-        const data = await res.json();
-        state.todos = data.data.map(todo => createTodoObject(todo));
-    } catch (err) {
-        console.error(err);
-    }
-}
 
 const createTodoObject = function(todo) {
     return {
@@ -24,68 +17,61 @@ const createTodoObject = function(todo) {
     }
 }
 
-export const addTodoToState = async function(todo) {
-    try {
-        const res = await fetch('http://localhost:8000/api/todos', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(todo),
-        });
+const storeTodos = function(data) {
+    return data.map(todo => createTodoObject(todo));
+}
 
-        if(!res.ok) throw new Error('Could not add todo');
-        const data = await res.json();
-        console.log('Todo created', data);
+export const loadTodos = async function() {
+    try {
+        const data = await AJAX(`${API_URL}`);
+        state.todos = storeTodos(data.data);
     } catch (err) {
         console.error(err);
+        throw err;
+    }
+}
+
+export const addTodoToState = async function(todo) {
+    try {
+        const data = await AJAX(`${API_URL}`, todo, 'POST');
+        state.todos.push(data.data);
+        return state.todos;
+    } catch (err) {
+        console.error(err);
+        throw err;
     }
 }
 
 export const removeTodoFromState = async function(index) {
     try {
-        const res = await fetch(`http://localhost:8000/api/todos/${state.todos[index].id}`, {
-            method: 'DELETE',
-        });
-        if(!res.ok) throw new Error('Could not delete todo');
-        const data = await res.json();
-        console.log('Todo deleted', data);
+        await AJAX(`${API_URL}/${state.todos[index].id}`, undefined, 'DELETE');
+        state.todos.splice(index, 1);
+        return state.todos;
     } catch (err) {
         console.error(err);
+        throw err;
     }
 }
 
 export const updateTodoStatus = async function(index, status) {
     try {
-        const res = await fetch(`http://localhost:8000/api/todos/${state.todos[index].id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ status }),
-        });
-        if(!res.ok) throw new Error('Could not update todo');
-        const data = await res.json();
-        console.log('Todo updated', data);
+       await AJAX(`${API_URL}/${state.todos[index].id}`, { status }, 'PATCH');
+        state.todos[index].status = status;
+        return state.todos;
     } catch (err) {
         console.error(err);
+        throw err;
     }
 }
 
 export const editTodo = async function(index, title, date) {
     try {
-        console.log(index, title);
-        const res = await fetch(`http://localhost:8000/api/todos/${state.todos[index].id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ title, deadline: date }),
-        });
-        if(!res.ok) throw new Error('Could not update todo');
-        const data = await res.json();
-        console.log('Todo updated', data);
+        await AJAX(`${API_URL}/${state.todos[index].id}`, { title, deadline: date }, 'PUT');
+        state.todos[index].title = title;
+        state.todos[index].deadline = date;
+        return state.todos;
     } catch (err) {
         console.error(err);
+        throw err;
     }
 };

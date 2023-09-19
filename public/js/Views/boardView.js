@@ -2,7 +2,8 @@ import View from './View.js';
 import previewView from './previewView.js';
 
 class BoardView extends View {
-    _parentElement = document.querySelector('.todo--container, .progress--container, .done--container');
+    // _parentElement = document.querySelector('.todo--container, .progress--container, .done--container');
+    _parentElement = document.querySelector('.project-tasks');
     _generateMarkup() {
         return this._data.map(result => previewView.render(result, false)).join('');
     }

@@ -21,6 +21,11 @@ const controlShowTodo = async function() {
     doneView.render(todos.done);
 };
 
+const controlUpdateView = function() {
+    const todos = catTodos();
+    todoView.update(todos.todo);
+};
+
 const controlAddTodo = async function() {
     const todo = addTodoView.getTodo();
     if (!todo) return controlShowTodo();
@@ -29,6 +34,7 @@ const controlAddTodo = async function() {
         await model.addTodoToState(todo);
     } catch (err) {
         console.error(err);
+        throw err;
     }
     controlShowTodo();
 };
@@ -39,6 +45,7 @@ const controlDeleteTodo = async function(id) {
         await model.removeTodoFromState(indexToDel);
     } catch(err) {
         console.error(err);
+        throw err;
     };
     controlShowTodo();
 }
@@ -49,6 +56,7 @@ const controlDragnDrop = async function(id, status) {
         await model.updateTodoStatus(changeTodo, status);
     } catch(err) {
         console.error(err);
+        throw err;
     }
 }
 
@@ -56,10 +64,11 @@ const controlEditTodo = async function(id, title, date) {
     const changeTodo = model.state.todos.findIndex(el => el.id === +id);
     try {
         await model.editTodo(changeTodo, title, date);
+        controlUpdateView();
     } catch(err) {
         console.error(err);
+        throw err;
     }
-    controlShowTodo();
 };
 
 const init = function() {

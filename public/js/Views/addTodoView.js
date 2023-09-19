@@ -47,7 +47,6 @@ class AddTodoView extends View {
         const currentDate = new Date();
         const deadline = new Date(this._parentElement.querySelector('#deadline-date').value);
         const roughDeadline = deadline.setHours(0, 0, 0, 30);
-        console.log(currentDate, deadline);
         this._clearInput();
         this._toggleAddTodo();
         if (!title) return;

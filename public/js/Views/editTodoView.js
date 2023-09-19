@@ -1,4 +1,5 @@
 import { getTodo } from "../helpers.js";
+
 class EditTodoView {
     _parentElement = document.querySelector('.project');
     _editContainer = document.querySelector('.edit-confirm__container');
@@ -19,15 +20,9 @@ class EditTodoView {
             const btn = e.target.closest('.task__edit');
             if (!btn) return;
             editTodoId = (btn.id.split('_')[1]);
-            console.log(editTodoId);
-            // console.log(editTodoId)
 
-            // // Get the title of the corresponding todo
-            // const todoToEdit = model.todos.find(todo => todo.id === editTodoId);
-            // // console.log(todoToEdit)
-
-            // Get todo
             const todoToEdit = getTodo(editTodoId);
+            console.log(todoToEdit);
             this._editTitleInput.textContent = todoToEdit.title;
             this._editCalendar.value = new Date(todoToEdit.deadline).toISOString().split('T')[0];
 
@@ -39,9 +34,9 @@ class EditTodoView {
                 alert('Please enter a title');
                 return;
             }
-            const newDate = new Date(this._editCalendar.value);
+            const newDate = (new Date(this._editCalendar.value));
             const currentDate = new Date();
-            if (newDate.setHours(0, 0, 0, 30) < currentDate.setHours(0, 0, 0, 30)) {
+            if (newDate.setHours(0, 0, 0, 0) < currentDate.setHours(0, 0, 0, 0)) {
                 alert('Please select a date in the future');
                 return;
             }
