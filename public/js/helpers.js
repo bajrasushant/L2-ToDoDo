@@ -17,3 +17,26 @@ export const catTodos = function() {
 export const getTodo = function(id) {
     return model.state.todos.find(el => el.id === +id);
 }
+
+export const AJAX = async function(url, uploadData = undefined, method='GET') {
+    try {
+        const options = {
+            method,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: uploadData ? JSON.stringify(uploadData): undefined,
+        };
+        const fetchPro =  fetch(url, options);
+
+        const res = await fetchPro;
+
+        if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+
+        const data = await res.json();
+
+        return data;
+    } catch (err) {
+        throw err;
+    }
+}

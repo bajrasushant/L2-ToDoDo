@@ -19,16 +19,14 @@ class AddTodoView extends View {
 
   _createCloseBtn() {
     this._plusBtn.innerText = "";
-    this._plusBtn.innerHTML =
-      "<svg><use href='/img/icons.svg#icon-close'></use></svg>";
+    this._plusBtn.innerHTML = "<svg><use href='/img/icons.svg#icon-close'></use></svg>";
     this._plusBtn.querySelector("use").setAttribute("fill", "rgb(248 113 113)");
     this._plusBtn.classList.remove("add");
   }
 
   _createAddBtn() {
     this._plusBtn.innerText = "";
-    this._plusBtn.innerHTML =
-      "<svg><use href='/img/icons.svg#icon-add'></use></svg>";
+    this._plusBtn.innerHTML = "<svg><use href='/img/icons.svg#icon-add'></use></svg>";
     this._plusBtn.classList.add("add");
     this._plusBtn.style.color = "var(--light-grey)";
   }
@@ -39,34 +37,29 @@ class AddTodoView extends View {
   }
 
   _addHandlerShowAddTodo() {
-    this._addTodoButton.addEventListener(
-      "click",
-      this._toggleAddTodo.bind(this)
-    );
+    this._addTodoButton.addEventListener("click", this._toggleAddTodo.bind(this));
   }
 
-  getTodo() {
-    const title = this._parentElement.querySelector("#todo-desc").value;
-    const dueDate = new Date(
-      this._parentElement.querySelector("#deadline-date").value
-    );
-    const currentDate = new Date();
-    this._clearInput();
-    this._toggleAddTodo();
-    if (!title) return;
-    if (currentDate.getTime() > dueDate.getTime()) {
-      console.error("Date in Past");
-      return;
+    getTodo() {
+        const title = this._parentElement.querySelector('#todo-desc').value;
+        const currentDate = new Date();
+        const deadline = new Date(this._parentElement.querySelector('#deadline-date').value);
+        const roughDeadline = deadline.setHours(0, 0, 0, 30);
+        this._clearInput();
+        this._toggleAddTodo();
+        if (!title) return;
+        if (currentDate.setHours(0, 0, 0, 30) <= roughDeadline && currentDate) {
+            return {
+                title: title,
+                deadline: deadline,
+                tag: 'Practice',
+                status: 'todo',
+                createdAt: new Date().getTime(),
+            }
+        }
+        console.error('Date in Past');
+        return;
     }
-    return {
-      title: title,
-      dueDate: dueDate,
-      id: "id" + new Date().getTime(),
-      tag: "Practice",
-      status: "todo",
-      createdAt: new Date().getTime(),
-    };
-  }
 
   addHandlerClick(handler) {
     this._createTodo.addEventListener("click", handler);

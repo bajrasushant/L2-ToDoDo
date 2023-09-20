@@ -13,7 +13,7 @@ class PreviewView extends View {
     <div class='task__stats'>
       <!-- TODO: make the flag 12px -->
       <div class='flag-note-owner__container'>
-        <span><time datetime="${this._data.dueDate}"><span><svg><use href="/img/icons.svg#icon-flag"></use></svg></span>${new Date(this._data.dueDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</time></span>
+        <span><time datetime="${this._data.deadline.toLocaleDateString()}"><span><svg><use href="/img/icons.svg#icon-flag"></use></svg></span>${new Date(this._data.deadline).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</time></span>
         <span><span><svg><use href="/img/icons.svg#icon-chat_bubble"></use></svg></span>3</span>
         <!-- <span class='task__owner'></span> <!-- add profile picture here --> 
       </div>

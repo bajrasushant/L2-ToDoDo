@@ -88,25 +88,6 @@
 					</div>
 
 					<div class="todo--container containers">
-						<!-- <div class='task' draggable='true'> 
-							<div class='task__tags'>
-								<span class='task__tag task__tag--copyright'>Copywriting</span>
-								<button class='task__options'><span class="material-icons-sharp">more_horiz</span></button>
-							</div>
-							<p>to do #1</p>
-							<div class='task__stats'>
-								<div class='flag-note-owner__container'>
-									<span><time datetime="2021-11-24T20:00:00"><span class="material-icons-sharp">flag</span>Nov 24</time></span>
-									<span><span class="material-icons-sharp">chat_bubble</span>3</span>
-									<span class='task__owner'></span>
-								</div>
-								
-								<div class='edit-delete__container'>
-									<button class='task__edit'><span class="material-icons-sharp">edit</span></button>
-									<button data-modal-target="#delete__container" class='task__delete'><span class="material-icons-sharp">delete</span></button>
-								</div>
-							</div>
-						</div>  -->
 					</div>
 				</div>
 
@@ -122,19 +103,6 @@
 						</button>
 					</div>
 					<div class='progress--container containers'>
-						<!-- <div class='task' draggable='true'>
-							<div class='task__tags'>
-								<span class='task__tag task__tag--design'>UI Design</span>
-								<button class='task__options'><span class="material-icons-sharp">more_horiz</span></button>
-							</div>
-							<p>In progress #1</p>
-							<div class='task__stats'>
-								<span><time datetime="2021-11-24T20:00:00"><span class="material-icons-sharp">flag</span>Nov
-										24</time></span>
-								<span><span class="material-icons-sharp">chat_bubble</span>3</span>
-								<span class='task__owner'></span>
-							</div>
-						</div> -->
 					</div>
 				</div>
 
@@ -150,24 +118,11 @@
 						</button>
 					</div>
 					<div class='done--container containers'>
-						<!-- <div class='task' draggable='true'>
-							<div class='task__tags'>
-								<span class='task__tag task__tag--illustration'>Illustration</span>
-								<button class='task__options'><span class="material-icons-sharp">more_horiz</span></button>
-							</div>
-							<p>done #1</p>
-							<div class='task__stats'>
-								<span><time datetime="2021-11-24T20:00:00"><span class="material-icons-sharp">flag</span>Nov
-										24</time></span>
-								<span><span class="material-icons-sharp">chat_bubble</span>3</span>
-								<span class='task__owner'></span>
-							</div>
-						</div> -->
 					</div>
 				</div>
 				<div id="deleteOverlay"></div>
 				<div id="editOverlay"></div>
 			</div>
 		</main>
-	</div>
+</div>
 @endsection
