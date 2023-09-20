@@ -8,7 +8,7 @@
 
 @include('sidebar')
 
-		<main class='project'>
+<main class='project close'>
 			<div class='project-info'>
 				<h1>ToDODO</h1>
 				<div class='project-participants'>
@@ -28,11 +28,17 @@
 						<div class="buttons-container">
 							<!-- Create new task button-->
 							<button class='task__add' id="add__todo-btn">
-								<span id="todo__plus-btn" class="material-icons-sharp add">add</span>
+								<!-- <span id="todo__plus-btn" class="material-icons-sharp add">add</span> -->
+								<span id="todo__plus-btn" class="add">
+									<svg><use href="/img/icons.svg#icon-add"></use></svg>
+								</span>
 							</button>
 
 							<button class='project-column-heading__options'>
-								<span class="material-icons-sharp">more_horiz</span>
+								<!-- <span class="material-icons-sharp">more_horiz</span> -->
+								<span>
+									<svg><use href="/img/icons.svg#icon-more_horiz"></use></svg>
+								</span>
 							</button>
 						</div>
 					</div>
@@ -47,7 +53,7 @@
 									<input type="text" id="todo-desc" required class="todo__desc-input" placeholder="Enter todo description">
 									<input id="deadline-date" type="date" />
 								</div>
-
+								
 							</div>
 							<button class="create__todo-btn" type="submit">Create Todo</button>
 						</div>
@@ -82,7 +88,7 @@
 					</div>
 
 					<div class="todo--container containers">
-						<!-- <div class='task' draggable='true'>
+						<!-- <div class='task' draggable='true'> 
 							<div class='task__tags'>
 								<span class='task__tag task__tag--copyright'>Copywriting</span>
 								<button class='task__options'><span class="material-icons-sharp">more_horiz</span></button>
@@ -94,7 +100,7 @@
 									<span><span class="material-icons-sharp">chat_bubble</span>3</span>
 									<span class='task__owner'></span>
 								</div>
-
+								
 								<div class='edit-delete__container'>
 									<button class='task__edit'><span class="material-icons-sharp">edit</span></button>
 									<button data-modal-target="#delete__container" class='task__delete'><span class="material-icons-sharp">delete</span></button>
@@ -109,8 +115,11 @@
 				<div class='project-column progress'>
 					<div class='project-column-heading'>
 						<h2 class='project-column-heading__title'>In Progress</h2>
-						<button class='project-column-heading__options'><span
-								class="material-icons-sharp">more_horiz</span></button>
+						<button class='project-column-heading__options'>
+							<span>
+								<svg><use href="/img/icons.svg#icon-more_horiz"></use></svg>
+							</span>
+						</button>
 					</div>
 					<div class='progress--container containers'>
 						<!-- <div class='task' draggable='true'>
@@ -134,8 +143,11 @@
 				<div class='project-column done'>
 					<div class='project-column-heading'>
 						<h2 class='project-column-heading__title'>Done</h2>
-						<button class='project-column-heading__options'><span
-								class="material-icons-sharp">more_horiz</span></button>
+						<button class='project-column-heading__options'>
+							<span>
+								<svg><use href="/img/icons.svg#icon-more_horiz"></use></svg>
+							</span>
+						</button>
 					</div>
 					<div class='done--container containers'>
 						<!-- <div class='task' draggable='true'>
