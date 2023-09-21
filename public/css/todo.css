@@ -1,18 +1,18 @@
 :root {
-  --bg:#ebf0f7;
-  --header:#fbf4f6;
-  --text:#2e2e2f;
-  --white:#ffffff;
-  --light-grey:#c4cad3;
-  --tag-1:#ceecfd;
-  --tag-1-text:#2e87ba;
-  --tag-2:#d6ede2;
-  --tag-2-text:#13854e;
-  --tag-3:#ceecfd;
-  --tag-3-text:#2d86ba;
-  --tag-4:#f2dcf5;
-  --tag-4-text:#a734ba;
-  --purple:#7784ee;
+  --bg: #ebf0f7;
+  --header: #fbf4f6;
+  --text: #2e2e2f;
+  --white: #ffffff;
+  --light-grey: #c4cad3;
+  --tag-1: #ceecfd;
+  --tag-1-text: #2e87ba;
+  --tag-2: #d6ede2;
+  --tag-2-text: #13854e;
+  --tag-3: #ceecfd;
+  --tag-3-text: #2d86ba;
+  --tag-4: #f2dcf5;
+  --tag-4-text: #a734ba;
+  --purple: #7784ee;
 }
 
 body {
@@ -20,16 +20,16 @@ body {
   overflow-y: scroll;
 }
 .display {
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
 }
 
 .app {
   display: flex;
   /* grid-template-columns: 12rem auto; */
-  background-color:var(--bg);
-  width:96%;
-  min-height:100vh;
+  background-color: var(--bg);
+  width: 96%;
+  min-height: 100vh;
   margin: 0 auto;
 }
 
@@ -53,7 +53,8 @@ body {
   display: flex;
   align-items: center;
 }
-.project-participants span, .project-participants__add {
+.project-participants span,
+.project-participants__add {
   width: 30px;
   height: 30px;
   display: inline-block;
@@ -69,7 +70,7 @@ body {
   position: relative;
 }
 .project-participants__add:after {
-  content: '+';
+  content: "+";
   font-size: 15px;
   color: #969696;
 }
@@ -80,6 +81,11 @@ body {
   height: auto;
   min-height: 100vh;
   grid-column-gap: 1.5rem;
+}
+.project-tasks svg {
+  fill: var(--light-grey);
+  width: 1.6rem;
+  height: 1.6rem;
 }
 .project-column-heading {
   margin-bottom: 1rem;
@@ -100,7 +106,7 @@ body {
 .buttons-container {
   display: flex;
   align-items: center;
-  /* gap: 50px;  adjust the gap as needed */
+  /* gap: 50px;  Adjust the gap as needed */
 }
 
 .task {
@@ -115,7 +121,7 @@ body {
 }
 .task:hover {
   box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
-  border-color: rgba(162, 179, 207, .2) !important;
+  border-color: rgba(162, 179, 207, 0.2) !important;
 }
 .task p {
   font-size: 15px;
@@ -138,7 +144,7 @@ body {
   color: var(--tag-2-text);
   background-color: var(--tag-2);
 }
-.task__tag--new{
+.task__tag--new {
   color: var(--tag-3-text);
   background-color: var(--tag-3);
 }
@@ -151,8 +157,6 @@ body {
 .task__add {
   background: transparent;
   border: 0;
-  color: var(--light-grey);
-  font-size: 17px;
   cursor: pointer;
 }
 .task__options {
@@ -166,15 +170,27 @@ body {
   position: relative;
   width: 100%;
   color: var(--light-grey);
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+.task__stats svg {
+  margin-right: 2px;
+  fill: var(--light-grey);
+  width: 18px;
+  height: 18px;
+}
+.flag-note-owner__container span,
+.edit-delete__container button {
+  display: inline-block;
+  vertical-align: middle;
+  /* margin-right:2px; */
+}
 .edit-delete__container {
   display: flex;
   align-items: center;
-  /* gap: 50px;  adjust the gap as needed */
+  /* gap: 50px;  Adjust the gap as needed */
 }
 .task__edit {
   background: transparent;
@@ -192,23 +208,20 @@ body {
   cursor: pointer;
   margin-right: 5px;
 }
-.task__delete:hover{
-  color: #ef5c48;
+.task__delete:hover svg {
+  fill: #ef5c48;
 }
 .task__stats span:not(:last-of-type) {
-  margin-right: 1rem;
+  margin-right: 0.7rem;
 }
-.task__stats svg {
-  margin-right: 5px;
-}
-.task__owner {
+/*.task__owner {
   width: 25px;
   height: 25px;
   border-radius: 100rem;
   background: var(--purple);
-  /* position: absolute; */
+  //position: absolute;
   display: inline-block;
-}
+}*/
 .task-hover {
   border: 3px dashed var(--light-grey) !important;
 }
@@ -220,10 +233,10 @@ body {
   vertical-align: top;
   padding: 3rem 2rem;
 }
-.delete-confirm__container{
+.delete-confirm__container {
   position: fixed;
-  top:50%;
-  left:50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: 200ms ease-in-out;
   background-color: var(--white);
@@ -234,10 +247,10 @@ body {
   border: 3px dashed transparent;
   z-index: 10;
 }
-.delete-confirm__container.active{
+.delete-confirm__container.active {
   transform: translate(-50%, -50%) scale(1);
 }
-.delete-modal-header{
+.delete-modal-header {
   padding: 10px 15px;
   display: flex;
   justify-content: space-between;
@@ -248,17 +261,17 @@ body {
   font-size: 18px;
   font-weight: bold;
 }
-.delete-modal-header .delete-close-button{
+.delete-modal-header .delete-close-button {
   cursor: pointer;
   border: none;
   background: none;
   font-size: 1.25rem;
   font-weight: bold;
 }
-.delete-modal-body{
+.delete-modal-body {
   padding: 1rem;
 }
-.delete-modal-buttons{
+.delete-modal-buttons {
   padding: 1rem;
   display: flex;
   justify-content: flex-end;
@@ -275,10 +288,10 @@ body {
 .delete-modal-buttons button:first-child {
   background-color: var(--light-grey);
 }
-.edit-confirm__container{
+.edit-confirm__container {
   position: fixed;
-  top:50%;
-  left:50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: 200ms ease-in-out;
   background-color: var(--white);
@@ -289,10 +302,10 @@ body {
   border: 3px dashed transparent;
   z-index: 10;
 }
-.edit-confirm__container.active{
+.edit-confirm__container.active {
   transform: translate(-50%, -50%) scale(1);
 }
-.edit-modal-header{
+.edit-modal-header {
   padding: 10px 15px;
   display: flex;
   justify-content: space-between;
@@ -303,25 +316,25 @@ body {
   font-size: 18px;
   font-weight: bold;
 }
-.edit-modal-header .edit-close-button{
+.edit-modal-header .edit-close-button {
   cursor: pointer;
   border: none;
   background: none;
   font-size: 1.25rem;
   font-weight: bold;
 }
-.edit-modal-body{
+.edit-modal-body {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
   gap: 50px;
 }
-.edit-title-input{
+.edit-title-input {
   min-width: 200px;
   flex-grow: 1;
 }
-.edit-modal-buttons{
+.edit-modal-buttons {
   padding: 1rem;
   display: flex;
   justify-content: flex-end;
@@ -338,7 +351,7 @@ body {
 .edit-modal-buttons button:first-child {
   background-color: var(--light-grey);
 }
-.tag-progress {
+/* .tag-progress {
   margin: 1.5rem 0;
 }
 .tag-progress h2 {
@@ -419,11 +432,11 @@ body {
 }
 .task-icon--edit {
   background-color: #7784ee;
-}
+} */
 @media only screen and (max-width: 1300px) {
   .project {
     max-width: 100%;
- }
+  }
   /* .task-details {
     width: 100%;
     display: flex;
@@ -444,20 +457,19 @@ body {
     grid-template-columns: 1fr 1fr;
  }
 } */
-/* todo: fix the task_stats when shrinked */
+/* TODO: fix the task_stats when shrinked */
 @media only screen and (max-width: 768px) {
   /* .project-column:nth-child(2) {
     display: none;
  } */
   .project-tasks {
     grid-template-columns: 1fr;
- }
+  }
 
   h1 {
     font-size: 25px;
- }
+  }
 }
-
 
 .input__container {
   padding-left: 13px;
@@ -495,10 +507,10 @@ body {
 }
 
 .draggable.dragging {
-  opacity: .5;
+  opacity: 0.5;
 }
 
-#editoverlay {
+#editOverlay {
   position: fixed;
   opacity: 0;
   transition: 200ms ease-in-out;
@@ -510,12 +522,12 @@ body {
   pointer-events: none;
 }
 
-#editoverlay.active {
+#editOverlay.active {
   opacity: 1;
   pointer-events: all;
 }
 
-#deleteoverlay {
+#deleteOverlay {
   position: fixed;
   opacity: 0;
   transition: 200ms ease-in-out;
@@ -527,12 +539,12 @@ body {
   pointer-events: none;
 }
 
-#deleteoverlay.active {
+#deleteOverlay.active {
   opacity: 1;
   pointer-events: all;
 }
 
-.title-calendar-input{
+.title-calendar-input {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -544,11 +556,7 @@ body {
   min-width: 50px;
 }
 
-.todo__desc-input{
-  min-width: 200px;
+.todo__desc-input {
+  /* min-width: 200px; */
   flex-grow: 1;
-}
-
-time{
-  font-size: 12px;
 }
