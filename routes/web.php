@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/todo', function() {
     return view('todo');
 })->name('todo');
+
+Route::get('/login', function() {
+  return view('login');
+})->name('login');
