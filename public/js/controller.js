@@ -63,8 +63,9 @@ const controlDragnDrop = async function(id, status) {
 const controlEditTodo = async function(id, title, date) {
     const changeTodo = model.state.todos.findIndex(el => el.id === +id);
     try {
-        await model.editTodo(changeTodo, title, date);
+        const newTodo = await model.editTodo(changeTodo, title, date);
         controlUpdateView();
+        console.log(newTodo);
     } catch(err) {
         console.error(err);
         throw err;
