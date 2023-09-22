@@ -8,7 +8,7 @@
 
 @include('sidebar')
 
-<main class='project close'>
+<main class='project'>
 			<div class='project-info'>
 				<h1>ToDODO</h1>
 				<div class='project-participants'>

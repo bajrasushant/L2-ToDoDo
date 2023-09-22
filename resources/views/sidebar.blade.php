@@ -1,5 +1,5 @@
-<aside class="sidebar-container close">
-	<div class="sidebar close">
+<aside class="sidebar-container">
+	<div class="sidebar">
 		<header>
 			<!--TODO: move the logo inside project-info-->
 			<div class="top">
@@ -16,14 +16,14 @@
 			</i>
 		</header>
 
-		<a href="{{ route('home') }}">
+		<a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">
 			<span>
 				<svg><use href="img/icons.svg#icon-grid_view"></use></svg>
 			</span>
 			<div class="sidebar-text"><h3>Dashboard</h3></div>
 		</a>
 
-		<a href="{{ route('todo') }}" class="active">
+		<a href="{{ route('todo') }}" class="{{ request()->routeIs('todo') ? 'active' : '' }}">
 			<span>
 				<svg><use href="img/icons.svg#icon-view_week"></use></svg>
 			</span>
