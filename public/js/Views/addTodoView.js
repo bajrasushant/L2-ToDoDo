@@ -7,7 +7,6 @@ class AddTodoView extends View {
   _underlay = document.querySelector(".underlay");
   _createTodo = document.querySelector(".create__todo-btn");
   _plusBtn = document.querySelector("#todo__plus-btn");
-  _data;
 
   constructor() {
     super();
