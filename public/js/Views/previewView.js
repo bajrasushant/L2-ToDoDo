@@ -13,11 +13,11 @@ class PreviewView extends View {
     <div class='task__stats'>
       <!-- TODO: make the flag 12px -->
       <div class='flag-note-owner__container'>
-        <span><time datetime="${this._data.deadline.toLocaleDateString()}"><span><svg><use href="/img/icons.svg#icon-flag"></use></svg></span>${new Date(this._data.deadline).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</time></span>
+        <span><time datetime="${new Date(this._data.deadline).toLocaleDateString()}"><span><svg><use href="/img/icons.svg#icon-flag"></use></svg></span>${new Date(this._data.deadline).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</time></span>
         <span><span><svg><use href="/img/icons.svg#icon-chat_bubble"></use></svg></span>3</span>
-        <!-- <span class='task__owner'></span> <!-- add profile picture here --> 
+        <!-- <span class='task__owner'></span> <!-- add profile picture here -->
       </div>
-      
+
       <div class='edit-delete__container'>
         <button class='task__edit' id="edit-button_${this._data.id}"><span><svg><use href="/img/icons.svg#icon-edit"></use></svg></span></button>
         <button class='task__delete' id="delete-button_${this._data.id}"><span><svg><use href="/img/icons.svg#icon-delete"></use></svg></span></button>
@@ -28,7 +28,7 @@ class PreviewView extends View {
   }
 
   addHandlerRender(handler) {
-    window.addEventListener('load', handler); 
+    window.addEventListener('load', handler);
   }
 }
 
