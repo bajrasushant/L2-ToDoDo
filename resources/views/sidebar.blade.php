@@ -9,7 +9,7 @@
 				</div>
 			</div>
 			
-			<i class="sidebar-collapser toggle rotate">
+			<i class="sidebar-collapser toggle">
 				<span>
 					<svg height="24" width="24"><use href="img/icons.svg#icon-chevron_left"></use></svg>
 				</span>

@@ -55,7 +55,9 @@
 								</div>
 								
 							</div>
-							<button class="create__todo-btn" type="submit">Create Todo</button>
+							<div class="create__todo">
+                <button class='create__todo-btn' type="submit">Create</button>
+              </div>
 						</div>
 						<!-- <p contenteditable="true" class="input-box"></p> -->
 					</div>
