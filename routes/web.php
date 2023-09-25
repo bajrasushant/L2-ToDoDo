@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthManager;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,10 +21,10 @@ Route::get('/todo', function() {
     return view('todo');
 })->name('todo');
 
-Route::get('/login', function() {
-  return view('login');
-})->name('login');
+Route::get('/login', [AuthManager::class, 'login'])->name('login');
+Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
 
-Route::get('/register', function() {
-  return view('register');
-})->name('register');
+Route::get('/register', [AuthManager::class, 'register'])->name('register');
+Route::post('/register', [AuthManager::class, 'registerPost'])->name('register.post');
+
+Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
