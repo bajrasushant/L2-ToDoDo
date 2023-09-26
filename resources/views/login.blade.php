@@ -7,20 +7,20 @@
 <main class="main">
   <div class="container">
     <div class="message">
-      @if ($errors->any())
-        <div class="error">
+    @if ($errors->any())
+        <div class="alert error">
           @foreach ($errors->all() as $error)
-            <div class="alert">{{$error}}</div>
+            <div>{{$error}}</div>
           @endforeach
         </div>
       @endif
 
       @if (session()->has('error'))
-        <div class="alert">{{session('error')}}</div>
+        <div class="alert error">{{session('error')}}</div>
       @endif
 
       @if (session()->has('success'))
-        <div class="alert">{{session('success')}}</div>
+        <div class="alert success">{{session('success')}}</div>
       @endif
     </div>
     
