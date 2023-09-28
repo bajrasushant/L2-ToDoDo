@@ -22,6 +22,7 @@ class TododoController extends Controller
         $todo->deadline = date('Y-m-d', strtotime($request->deadline));
         $todo->tag = $request->tag;
         $todo->status = $request->status;
+				$todo->project_id = $request->projectId;
         $todo->save();
 
         return response()->json([

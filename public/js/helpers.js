@@ -32,7 +32,6 @@ export const AJAX = async function(url, uploadData = undefined, method='GET') {
         const res = await fetchPro;
 
         if (!res.ok) throw new Error(`${data.message} (${res.status})`);
-
         const data = await res.json();
 
         return data;

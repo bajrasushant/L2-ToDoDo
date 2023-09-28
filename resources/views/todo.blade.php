@@ -43,17 +43,17 @@
 						</div>
 					</div>
 
-					<div class="add-todo-container">
+<div class="add-todo-container">
 						<div class="task underlay hidden">
 							<div>
 								<div class="task__tags">
-									<span class="task__tag task__tag--new">New Tag</span>
+									<select class="task__tag task__tag--new"></select>
 								</div>
 								<div class="title-calendar-input">
 									<input type="text" id="todo-desc" required class="todo__desc-input" placeholder="Enter todo description">
 									<input id="deadline-date" type="date" />
 								</div>
-								
+
 							</div>
 							<div class="create__todo">
                 <button class='create__todo-btn' type="submit">Create</button>
@@ -61,37 +61,10 @@
 						</div>
 						<!-- <p contenteditable="true" class="input-box"></p> -->
 					</div>
-
-					<div class="delete-confirm__container" id="delete__container"> <!-- add active here-->
-						<div class="delete-modal-header">
-							<div class="delete-modal-title">Delete Todo?</div>
-							<button class="delete-close-button">&times;</button>
-						</div>
-						<div class="delete-modal-body">Are you sure you want to delete this todo item?</div>
-						<div class="delete-modal-buttons">
-							<button class="cancel-delete__btn">Cancel</button>
-							<button class="confirm-delete__btn">Delete</button>
-						</div>
-					</div>
-
-					<div class="edit-confirm__container" id="edit__container"> <!-- add active here-->
-						<div class="edit-modal-header">
-							<div class="edit-modal-title">edit Todo?</div>
-							<button class="edit-close-button">&times;</button>
-						</div>
-						<div class="edit-modal-body">
-							<div class="edit-title-input" contenteditable='true'></div>
-							<input type="date" class="edit-calendar" contenteditable='true'></input>
-						</div>
-						<div class="edit-modal-buttons">
-							<button class="cancel-edit__btn">Cancel</button>
-							<button class="confirm-edit__btn">Done</button>
-						</div>
-					</div>
-
 					<div class="todo--container containers">
 					</div>
 				</div>
+
 
 
 				<!-- IN PROGRESS COLUMN -->
@@ -125,6 +98,34 @@
 				<div id="deleteOverlay"></div>
 				<div id="editOverlay"></div>
 			</div>
+
+<!-- misc modals -->
+					<div class="delete-confirm__container" id="delete__container"> <!-- add active here-->
+						<div class="delete-modal-header">
+							<div class="delete-modal-title">Delete Todo?</div>
+							<button class="delete-close-button">&times;</button>
+						</div>
+						<div class="delete-modal-body">Are you sure you want to delete this todo item?</div>
+						<div class="delete-modal-buttons">
+							<button class="cancel-delete__btn">Cancel</button>
+							<button class="confirm-delete__btn">Delete</button>
+						</div>
+					</div>
+
+					<div class="edit-confirm__container" id="edit__container"> <!-- add active here-->
+						<div class="edit-modal-header">
+							<div class="edit-modal-title">edit Todo?</div>
+							<button class="edit-close-button">&times;</button>
+						</div>
+						<div class="edit-modal-body">
+							<div class="edit-title-input" contenteditable='true'></div>
+							<input type="date" class="edit-calendar" contenteditable='true'></input>
+						</div>
+						<div class="edit-modal-buttons">
+							<button class="cancel-edit__btn">Cancel</button>
+							<button class="confirm-edit__btn">Done</button>
+						</div>
+					</div>
 		</main>
 </div>
 @endsection
