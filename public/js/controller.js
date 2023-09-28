@@ -21,12 +21,12 @@ const controlShowTodo = async function() {
   doneView.render(todos.done);
 };
 
-const controlUpdateView = function() {
-  const todos = catTodos();
-  todoView.update(todos.todo);
-  progressView.update(todos.progress);
-  doneView.update(todos.done);
-};
+// const controlUpdateView = function() {
+//   const todos = catTodos();
+//   todoView.update(todos.todo);
+//   progressView.update(todos.progress);
+//   doneView.update(todos.done);
+// };
 
 const controlAddTodo = async function() {
   const todo = addTodoView.getTodo();
@@ -70,7 +70,7 @@ const controlEditTodo = async function(id, title, date) {
     console.error(err);
     throw err;
   }
-    controlUpdateView();
+  controlShowTodo();
 };
 
 const init = function() {
