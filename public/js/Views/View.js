@@ -24,31 +24,27 @@ export default class View {
         this._parentElement.insertAdjacentHTML('afterbegin', markup);
     };
 
-    update(data) {
-        this._data = data;
-        const newMarkup = this._generateMarkup();
-        const newDOM = document.createRange().createContextualFragment(newMarkup);
-        const newElements = Array.from(newDOM.querySelectorAll('*'));
-        const curElements = Array.from(this._parentElement.querySelectorAll('*'));
-      console.log(newElements, curElements);
-        newElements.forEach((newEl, i) => {
-            const curEl = curElements[i];
-          console.log(curEl);
-          console.log(i);
-          console.log(newEl, curEl);
-            if (!newEl.isEqualNode(curEl) && newEl.firstChild.nodeValue && newEl.firstChild.nodeValue.trim() !== '') {
-                curEl.textContent = newEl.textContent;
-            }
-            if (!newEl.isEqualNode(curEl)) {
-                Array.from(newEl.attributes).forEach(attr => curEl.setAttribute(attr.name, attr.value));
-              if(newEl.nodeName === 'TIME') {
-                const textNode = newEl.childNodes[1];
-                if(textNode.nodeType === Node.TEXT_NODE) {
-                  curEl.childNodes[1].textContent = textNode.textContent;
-                }
-              }
-            }
-        }
-        );
-    };
+    // update(data) {
+    //     this._data = data;
+    //     const newMarkup = this._generateMarkup();
+    //     const newDOM = document.createRange().createContextualFragment(newMarkup);
+    //     const newElements = Array.from(newDOM.querySelectorAll('*'));
+    //     const curElements = Array.from(this._parentElement.querySelectorAll('*'));
+    //     newElements.forEach((newEl, i) => {
+    //         const curEl = curElements[i];
+    //         if (!newEl.isEqualNode(curEl) && newEl.firstChild.nodeValue && newEl.firstChild.nodeValue.trim() !== '') {
+    //             curEl.textContent = newEl.textContent;
+    //         }
+    //         if (!newEl.isEqualNode(curEl)) {
+    //             Array.from(newEl.attributes).forEach(attr => curEl.setAttribute(attr.name, attr.value));
+    //           if(newEl.nodeName === 'TIME') {
+    //             const textNode = newEl.childNodes[1];
+    //             if(textNode.nodeType === Node.TEXT_NODE) {
+    //               curEl.childNodes[1].textContent = textNode.textContent;
+    //             }
+    //           }
+    //         }
+    //     }
+    //     );
+    // };
 }
