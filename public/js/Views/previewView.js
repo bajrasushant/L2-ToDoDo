@@ -1,4 +1,5 @@
 import View from "./View.js";
+import { getProjectName } from "../helpers.js";
 
 class PreviewView extends View {
   _parentElement = '';
@@ -7,7 +8,7 @@ class PreviewView extends View {
     return `
   <div class='task draggable' id='task_${this._data.id}' draggable='true'>
     <div class='task__tags'>
-      <span class='task__tag task__tag--copyright'>${this._data.tag}</span>
+      <span class='task__tag task__tag--copyright'>${this._data.project.name}</span>
     </div>
     <p>${this._data.title}</p>
     <div class='task__stats'>

@@ -7,6 +7,7 @@ export const state = {
 };
 
 const createTodoObject = function(todo) {
+	const project = state.projects.find(project => project.id === todo.project_id);
     return {
         id: todo.id,
         title: todo.title,
@@ -15,6 +16,8 @@ const createTodoObject = function(todo) {
         status: todo.status,
         deadline: new Date(todo.deadline),
         tag: todo.tag,
+				projectId: todo.project_id,
+				project: project || {},
     }
 }
 

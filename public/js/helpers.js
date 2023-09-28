@@ -18,6 +18,11 @@ export const getTodo = function(id) {
     return model.state.todos.find(el => el.id === +id);
 }
 
+export const getProjectName = function(id) {
+	return model.state.projects.find(project => project.id === id).name;
+};
+
+
 export const AJAX = async function(url, uploadData = undefined, method='GET') {
     try {
         const options = {

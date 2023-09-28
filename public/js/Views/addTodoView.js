@@ -51,11 +51,11 @@ class AddTodoView extends View {
   getTodo() {
     const title = this._parentElement.querySelector("#todo-desc").value;
     const currentDate = new Date();
+		const projectId = this._parentElement.querySelector('select').value;
     const deadline = new Date(
       this._parentElement.querySelector("#deadline-date").value
     );
     const roughDeadline = deadline.setHours(0, 0, 0, 30);
-    console.log(currentDate, deadline);
     this._clearInput();
     this._toggleAddTodo();
     if (!title) return;
@@ -66,7 +66,7 @@ class AddTodoView extends View {
         tag: "Practice",
         status: "todo",
         createdAt: new Date().getTime(),
-				projectId: '1'
+				projectId: projectId ,
       };
     }
     console.error("Date in Past");
