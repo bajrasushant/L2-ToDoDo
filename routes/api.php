@@ -27,3 +27,5 @@ Route::delete('/todos/{id}', 'App\Http\Controllers\TododoController@deleteTodo')
 Route::patch('/todos/{id}', 'App\Http\Controllers\TododoController@updateTodo');
 
 Route::put('/todos/{id}', 'App\Http\Controllers\TododoController@editTodo');
+
+Route::get('/projects', 'App\Http\Controllers\ProjectController@showUserProjects');

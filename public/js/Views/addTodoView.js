@@ -1,5 +1,4 @@
 import View from "./View.js";
-import previewView from "./previewView.js";
 
 class AddTodoView extends View {
   _parentElement = document.querySelector(".add-todo-container");
@@ -67,6 +66,7 @@ class AddTodoView extends View {
         tag: "Practice",
         status: "todo",
         createdAt: new Date().getTime(),
+				projectId: '1'
       };
     }
     console.error("Date in Past");

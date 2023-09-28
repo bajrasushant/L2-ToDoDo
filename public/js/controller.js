@@ -8,6 +8,7 @@ import deleteTodoView from './Views/deleteTodoView.js';
 import dragDropView from './Views/dragDropView.js';
 import sidebarView from './Views/sidebarView.js';
 import editTodoView from './Views/editTodoView.js';
+import dropDownView from './Views/dropDownView.js';
 
 const controlShowTodo = async function() {
   todoView.renderSpinner();
@@ -73,6 +74,11 @@ const controlEditTodo = async function(id, title, date) {
   controlShowTodo();
 };
 
+const controlDropDown = async function() {
+	await model.loadProjects();
+	dropDownView.populatedDropDown(model.state.projects);
+};
+
 const init = function() {
   previewView.addHandlerRender(controlShowTodo);
   addTodoView.addHandlerClick(controlAddTodo);
@@ -80,5 +86,6 @@ const init = function() {
   dragDropView.addHandlerDragOver(controlDragnDrop);
   sidebarView.toggleSidebar();
   editTodoView.addHandlerEdit(controlEditTodo);
+	controlDropDown();
 };
 init();

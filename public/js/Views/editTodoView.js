@@ -1,4 +1,4 @@
-import { getTodo } from "../helpers.js";
+import { getTodo, } from "../helpers.js";
 
 class EditTodoView {
     _parentElement = document.querySelector('.project');

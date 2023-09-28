@@ -1,8 +1,9 @@
 import { AJAX } from './helpers.js';
-import { API_URL } from './config.js';
+import { API_URL, PROJECT_URL } from './config.js';
 
 export const state = {
     todos: [],
+		projects: [],
 };
 
 const createTodoObject = function(todo) {
@@ -17,18 +18,42 @@ const createTodoObject = function(todo) {
     }
 }
 
+const createProjectObject = function(project) {
+	return {
+		id: project.id,
+		name: project.name,
+		owner: project.owner_id,
+		description: project.description,
+		createdAt: new Date(project.created_at),
+		updatedAt: new Date(project.updated_at),
+		deadline: new Date(project.deadline),
+		priority: project.priority,
+		status: project.status,
+	}
+}
+
 const storeTodos = function(data) {
     return data.map(todo => createTodoObject(todo));
 }
 
 export const loadTodos = async function() {
-    try {
+   try {
         const data = await AJAX(`${API_URL}`);
         state.todos = storeTodos(data.data);
     } catch (err) {
         console.error(err);
         throw err;
     }
+}
+
+export const loadProjects = async function() {
+	try {
+		const data = await AJAX(`${PROJECT_URL}`);
+		state.projects = data.data.map(project => createProjectObject(project));
+	} catch (err) {
+		console.error(err);
+		throw err;
+	}
 }
 
 export const addTodoToState = async function(todo) {
