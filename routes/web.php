@@ -25,6 +25,9 @@ Route::get('/todo', function() {
     return view('todo');
 })->name('todo');
 
+Route::get('/projects', function() {
+    return view('project');
+})->name('project');
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
 Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
 

@@ -1,7 +1,7 @@
 @extends('layout')
-@section('title', 'ToDODO|Board')
+@section('title', 'ToDODO|Projects')
 @section('scripts')
-    <script type="module" src="{{ asset('js/controller.js') }}" defer></script>
+    <!--<script type="module" src="{{ asset('js/controller.js') }}" defer></script> -->
 @endsection
 @section('content')
 	<div class='app'>
@@ -10,7 +10,7 @@
 
 <main class='project'>
 			<div class='project-info'>
-				<h1>ToDODO</h1>
+				<h1>ToDODO | Projects</h1>
 				<div class='project-participants'>
 					<span></span>
 					<span></span>
@@ -22,9 +22,9 @@
 			<div class='project-tasks'>
 
 				<!-- TO DO COLUMN -->
-				<div class='project-column todo'>
+				<div class='project-column'>
 					<div class='project-column-heading'>
-						<h2 class='project-column-heading__title'>TO DO</h2>
+						<h2 class='project-column-heading__title'>Pending</h2>
 						<div class="buttons-container">
 							<!-- Create new task button-->
 							<button class='task__add' id="add__todo-btn">
@@ -43,7 +43,7 @@
 						</div>
 					</div>
 
-<div class="add-todo-container">
+<div class="add-project-container">
 						<div class="task underlay hidden">
 							<div>
 								<div class="task__tags">
@@ -61,7 +61,7 @@
 						</div>
 						<!-- <p contenteditable="true" class="input-box"></p> -->
 					</div>
-					<div class="todo--container containers">
+					<div class="ongoing--container containers">
 					</div>
 				</div>
 
@@ -70,7 +70,7 @@
 				<!-- IN PROGRESS COLUMN -->
 				<div class='project-column progress'>
 					<div class='project-column-heading'>
-						<h2 class='project-column-heading__title'>In Progress</h2>
+						<h2 class='project-column-heading__title'>On Going</h2>
 						<button class='project-column-heading__options'>
 							<span>
 								<svg><use href="/img/icons.svg#icon-more_horiz"></use></svg>
@@ -95,13 +95,11 @@
 					<div class='done--container containers'>
 					</div>
 				</div>
-
 <!-- modals place -->
-		@include('modals');
+				@include('modals');
 				<div id="deleteOverlay"></div>
 				<div id="editOverlay"></div>
 			</div>
-
 		</main>
 </div>
 @endsection

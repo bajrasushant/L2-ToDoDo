@@ -8,7 +8,7 @@
 					<div class="sidebar-text"><h2>ToDODO</h2></div>
 				</div>
 			</div>
-			
+
 			<i class="sidebar-collapser toggle">
 				<span>
 					<svg height="24" width="24"><use href="img/icons.svg#icon-chevron_left"></use></svg>
@@ -30,7 +30,7 @@
 			<div class="sidebar-text"><h3>Board</h3></div>
 		</a>
 
-		<a href="#">
+		<a href="{{ route('project') }}" class="{{ request()->routeIs('project') ? 'active' : '' }}">
 			<span>
 				<svg><use href="img/icons.svg#icon-format_list_bulleted"></use></svg>
 			</span>
