@@ -1,8 +1,5 @@
 @extends('layout')
 @section('title', 'ToDODO|Projects')
-@section('scripts')
-    <!--<script type="module" src="{{ asset('js/controller.js') }}" defer></script> -->
-@endsection
 @section('content')
 	<div class='app'>
 
@@ -20,8 +17,6 @@
 			</div>
 
 			<div class='project-tasks'>
-
-				<!-- TO DO COLUMN -->
 				<div class='project-column'>
 					<div class='project-column-heading'>
 						<h2 class='project-column-heading__title'>Pending</h2>
