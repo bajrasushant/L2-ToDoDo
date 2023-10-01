@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-			Schema::table('tododo', function (Blueprint $table) {
+      Schema::table('tododo', function (Blueprint $table) {    
+        $table->unsignedBigInteger('project_id')->nullable();
+        $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+    });
 
-				$table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+      DB::table('tododo')->whereNull('project_id')->update(['project_id' => 1]);
     }
-			);
-			DB:table('tododo')->update(['project_id' => 1]);
-		}
 
     /**
      * Reverse the migrations.
