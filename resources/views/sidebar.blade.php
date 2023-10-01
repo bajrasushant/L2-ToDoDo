@@ -50,12 +50,14 @@
 			</span>
 			<div class="sidebar-text"><h3>Settings</h3></div>
 		</a>
-
-		<a href="#">
+    
+		@auth
+    <a href="{{ route('logout') }}" class="{{ request()->routeIs('logout') ? 'active' : '' }}">
 			<span>
 				<svg><use href="img/icons.svg#icon-logout"></use></svg>
 			</span>
 			<div class="sidebar-text"><h3>Logout</h3></div>
 		</a>
+    @endauth
 	</div>
 </aside>
