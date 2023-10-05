@@ -25,10 +25,12 @@ export const getProjectName = function(id) {
 
 export const AJAX = async function(url, uploadData = undefined, method='GET') {
     try {
+			const token = localStorage.getItem('authToken');
         const options = {
             method,
             headers: {
                 'Content-Type': 'application/json',
+								'Authorization': `Bearer ${token}`,
             },
             body: uploadData ? JSON.stringify(uploadData): undefined,
         };

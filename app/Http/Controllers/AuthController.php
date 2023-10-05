@@ -31,6 +31,7 @@ class AuthController extends Controller
 				'token'=>$token,
 				'message'=>'Login Success',
 				'user'=>$user,
+				'redirect'=>'/home',
 			]);
 		}
 		return response()->json([

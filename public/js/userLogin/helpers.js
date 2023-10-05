@@ -1,6 +1,7 @@
 export const AJAX = async function(url, loginData) {
 	try {
 		const token = localStorage.getItem('authToken');
+		console.log('token', token);
 		const res = await fetch(url, {
 			method: 'POST',
 			headers: {
@@ -11,7 +12,6 @@ export const AJAX = async function(url, loginData) {
 		});
 
 		const data = await res.json();
-		console.log(data);
 
 		if (!res.ok) throw new Error(`${data.message} (${res.status})`);
 		return data;
