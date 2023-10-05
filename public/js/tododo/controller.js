@@ -9,6 +9,7 @@ import dragDropView from './Views/dragDropView.js';
 import sidebarView from './Views/sidebarView.js';
 import editTodoView from './Views/editTodoView.js';
 import dropDownView from './Views/dropDownView.js';
+import logoutView from './Views/logoutView.js';
 
 const controlShowTodo = async function() {
   todoView.renderSpinner();
@@ -79,6 +80,14 @@ const controlDropDown = async function() {
 	dropDownView.populatedDropDown(model.state.projects);
 };
 
+const controlLogout = async function() {
+	try {
+		await model.userLogout();
+	}catch(err){
+		console.log(err.message);
+	}
+};
+
 const init = function() {
   previewView.addHandlerRender(controlShowTodo);
   addTodoView.addHandlerClick(controlAddTodo);
@@ -86,6 +95,7 @@ const init = function() {
   dragDropView.addHandlerDragOver(controlDragnDrop);
   sidebarView.toggleSidebar();
   editTodoView.addHandlerEdit(controlEditTodo);
+	logoutView.addHandlerLogout(controlLogout);
 	controlDropDown();
 };
 init();

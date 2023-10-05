@@ -1,5 +1,5 @@
 import { AJAX } from './helpers.js';
-import { API_URL, PROJECT_URL } from './config.js';
+import { API_URL, PROJECT_URL, USER_URL } from './config.js';
 
 export const state = {
     todos: [],
@@ -102,4 +102,17 @@ export const editTodo = async function(index, title, date) {
         console.error(err);
         throw err;
     }
+};
+
+export const userLogout = async function() {
+	try {
+		const res = await AJAX(`${USER_URL}/logout`, undefined, 'POST');
+		if (res.status === 200) {
+			localStorage.removeItem('authToken');
+			window.location.assign('/');
+		}
+	} catch(err) {
+		console.log(err.message);
+		throw new Error(err.message);
+	}
 };
