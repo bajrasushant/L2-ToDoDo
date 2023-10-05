@@ -1,7 +1,7 @@
 @extends('layout')
 @section('title', 'ToDODO|Board')
 @section('scripts')
-    <script type="module" src="{{ asset('js/controller.js') }}" defer></script>
+    <script type="module" src="{{ asset('js/tododo/controller.js') }}" defer></script>
 @endsection
 @section('content')
 	<div class='app'>
