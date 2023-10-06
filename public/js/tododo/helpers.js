@@ -26,6 +26,12 @@ export const getProjectName = function(id) {
 export const AJAX = async function(url, uploadData = undefined, method='GET') {
     try {
 			const token = localStorage.getItem('authToken');
+			const tokenExpiresIn = localStorage.getItem('expiresIn');
+			if (!token || tokenExpiresIn < Date.now()) {
+				// display error message set timeout.
+				window.location.href = '/';
+				return;
+			};
         const options = {
             method,
             headers: {

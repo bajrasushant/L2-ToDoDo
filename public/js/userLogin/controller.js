@@ -48,7 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			if (dataRes.status === 200) {
 				const token = dataRes.token;
+				const expiresIn = Date.now() + 1000 * 60 * 60 * 24;
 				localStorage.setItem('authToken', token);
+				localStorage.setItem('expiresIn', expiresIn);
 
 
 				if (dataRes.redirect) {
@@ -64,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						window.location.href = dataRes.redirect;
 					} else {
 						console.log('redirectRes not ok');
+						console.log(redirectRes);
 					}
 				} else {
 					console.log('User not authenticated');
