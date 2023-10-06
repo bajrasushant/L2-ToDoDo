@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -46,5 +47,40 @@ class AuthController extends Controller
 			'status'=>200,
 			'message'=>'Token deleted'
 		]);
+	}
+
+	public function register() {
+		if(Auth::check()){
+			return redirect()->route('home');
+		}
+		return view('userRegister');
+	}
+
+	public function registerPost(Request $request) {
+		$request->validate([
+			'name'=> 'required',
+			'email'=>'required|email|unique:users',
+			'password'=>'required',
+		]);
+
+		$data['name'] = $request->name;
+		$data['email'] = $request->email;
+		$data['password'] = Hash::make($request->password);
+
+		$user = User::create($data);
+
+		if(!$user) {
+			return response()->json([
+			'status'=> 401,
+			'message' => 'Invalid credentials',
+			'redirect'=>'/user/register',
+			]);
+		}
+			return response()->json([
+				'status'=>200,
+				'message'=>'User created successfully',
+				'user'=>$user,
+				'redirect'=>'/user/login',
+			]);
 	}
 }

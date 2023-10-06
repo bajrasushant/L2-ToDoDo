@@ -35,3 +35,4 @@ Route::get('/projects', 'App\Http\Controllers\ProjectController@showUserProjects
 // for login
 Route::post('/user/login', 'App\Http\Controllers\AuthController@loginPost');
 Route::post('/user/logout', 'App\Http\Controllers\AuthController@logout')->middleware('auth:sanctum');
+Route::post('/user/register', 'App\Http\Controllers\AuthController@registerPost');

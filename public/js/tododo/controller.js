@@ -6,10 +6,8 @@ import previewView from './Views/previewView.js';
 import addTodoView from './Views/addTodoView.js';
 import deleteTodoView from './Views/deleteTodoView.js';
 import dragDropView from './Views/dragDropView.js';
-import sidebarView from './Views/sidebarView.js';
 import editTodoView from './Views/editTodoView.js';
 import dropDownView from './Views/dropDownView.js';
-import logoutView from './Views/logoutView.js';
 
 const controlShowTodo = async function() {
   todoView.renderSpinner();
@@ -80,22 +78,13 @@ const controlDropDown = async function() {
 	dropDownView.populatedDropDown(model.state.projects);
 };
 
-const controlLogout = async function() {
-	try {
-		await model.userLogout();
-	}catch(err){
-		console.log(err.message);
-	}
-};
 
 const init = function() {
   previewView.addHandlerRender(controlShowTodo);
   addTodoView.addHandlerClick(controlAddTodo);
   deleteTodoView.addHandlerDelete(controlDeleteTodo);
   dragDropView.addHandlerDragOver(controlDragnDrop);
-  sidebarView.toggleSidebar();
   editTodoView.addHandlerEdit(controlEditTodo);
-	logoutView.addHandlerLogout(controlLogout);
 	controlDropDown();
 };
 init();

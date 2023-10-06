@@ -18,7 +18,6 @@
             if ((!token || !expiration || Date.now() > expiration) && currentPath !== '/user/login' && currentPath !== '/' && currentPath !== '/user/register') {
 							// display error message set timeout.
                 window.location.href = '/'; // Redirect to login page if token is not present
-								return;
             }
     </script>
 @yield('scripts')

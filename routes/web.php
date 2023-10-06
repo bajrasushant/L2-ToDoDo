@@ -54,7 +54,9 @@ Route::get('/', function() {
   Route::get('/projects', function() {
       return view('project');
   })->name('project');
+
 // });
 
 // for login
 Route::get('/user/login', 'App\Http\Controllers\AuthController@login');
+Route::get('/user/register', 'App\Http\Controllers\AuthController@register')->name('userRegister');
