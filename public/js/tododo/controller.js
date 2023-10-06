@@ -13,7 +13,6 @@ const controlShowTodo = async function() {
   todoView.renderSpinner();
   progressView.renderSpinner();
   doneView.renderSpinner();
-	await model.loadProjects();
   await model.loadTodos();
   const todos = catTodos();
   todoView.render(todos.todo);

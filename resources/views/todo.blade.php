@@ -3,7 +3,6 @@
 @section('scripts')
     <script type="module" src="{{ asset('js/tododo/controller.js') }}" defer></script>
 	<script type="module" src="{{ asset('js/sidebar/controller.js') }}" defer></script>
-import logoutView from './Views/logoutView.js';
 @endsection
 @section('content')
 	<div class='app'>

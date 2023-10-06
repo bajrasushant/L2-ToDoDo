@@ -15,7 +15,7 @@
     <section class="wrapper">
       <div class="heading">
         <h1>Register a new account</h1>
-        <p>Already have an account? <span><a href="#">Sign in</a></span>
+				<p>Already have an account? <span><a href="{{ route('userLogin') }}">Sign in</a></span>
         </p>
       </div>
       <form class="form" id="registerForm">
