@@ -48,7 +48,9 @@
 						<div class="task underlay hidden">
 							<div>
 								<div class="task__tags">
-									<select class="task__tag task__tag--new"></select>
+									<select class="task__tag task__tag--new">
+<option value="" selected disabled>Select a project</option>
+									</select>
 								</div>
 								<div class="title-calendar-input">
 									<input type="text" id="todo-desc" required class="todo__desc-input" placeholder="Enter todo description">
