@@ -1,7 +1,8 @@
 @extends('layout')
 @section('title', 'ToDODO|Board')
 @section('scripts')
-    <script type="module" src="{{ asset('js/controller.js') }}" defer></script>
+    <script type="module" src="{{ asset('js/tododo/controller.js') }}" defer></script>
+	<script type="module" src="{{ asset('js/sidebar/controller.js') }}" defer></script>
 @endsection
 @section('content')
 	<div class='app'>
@@ -47,7 +48,9 @@
 						<div class="task underlay hidden">
 							<div>
 								<div class="task__tags">
-									<select class="task__tag task__tag--new"></select>
+									<select class="task__tag task__tag--new">
+<option value="" selected disabled>Select a project</option>
+									</select>
 								</div>
 								<div class="title-calendar-input">
 									<input type="text" id="todo-desc" required class="todo__desc-input" placeholder="Enter todo description">
@@ -97,7 +100,7 @@
 				</div>
 
 <!-- modals place -->
-		@include('modals');
+		@include('modals')
 				<div id="deleteOverlay"></div>
 				<div id="editOverlay"></div>
 			</div>

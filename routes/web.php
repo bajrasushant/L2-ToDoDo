@@ -13,9 +13,12 @@ use App\Http\Controllers\AuthManager;
 |
 */
 
-Route::get('/', function () {
-  return view('login');
-})->name('login');
+// Route::get('/', function () {
+//   return view('login');
+// })->name('login');
+Route::get('/', function() {
+	return view('userLogin');
+})->name('userLogin');
 
 // Route::get('/home', function() {
 //   return view('home');
@@ -29,25 +32,31 @@ Route::get('/', function () {
 //     return view('project');
 // })->name('project');
 
-Route::get('/login', [AuthManager::class, 'login'])->name('login');
-Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
+// Route::get('/login', [AuthManager::class, 'login'])->name('login');
+// Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
 
-Route::get('/register', [AuthManager::class, 'register'])->name('register');
-Route::post('/register', [AuthManager::class, 'registerPost'])->name('register.post');
+// Route::get('/register', [AuthManager::class, 'register'])->name('register');
+// Route::post('/register', [AuthManager::class, 'registerPost'])->name('register.post');
 
-Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
+// Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth:sanctum'])->group(function () {
   // Define your protected routes here
   Route::get('/home', function() {
     return view('home');
   })->name('home');
-  
+
   Route::get('/todo', function() {
       return view('todo');
   })->name('todo');
-  
+
+
   Route::get('/projects', function() {
       return view('project');
   })->name('project');
-});
+
+// });
+
+// for login
+Route::get('/user/login', 'App\Http\Controllers\AuthController@login');
+Route::get('/user/register', 'App\Http\Controllers\AuthController@register')->name('userRegister');

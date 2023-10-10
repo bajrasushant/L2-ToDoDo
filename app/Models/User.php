@@ -44,4 +44,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+		public function projects() {
+			return $this->hasMany(Project::class, 'owner_id', 'id');
+			}
+
+		public function todos() {
+			return $this->hasManyThrough(Tododo::class, Project::class);
+		}
 }

@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tododo;
-
+use Illuminate\Support\Facades\Auth;
 class TododoController extends Controller
 {
     //
     public function getTodos(){
-        $todos = Tododo::all();
+        // $todos = Tododo::all();
+			$user = Auth::user();
+			$todos = Tododo::whereHas('project', function($query) use ($user) {
+				$query->where('owner_id', $user->id);
+			})->with('project')->get();
         return response()->json([
             'message' => 'OK',
             'data' => $todos

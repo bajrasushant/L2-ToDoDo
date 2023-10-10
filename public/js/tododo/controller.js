@@ -6,7 +6,6 @@ import previewView from './Views/previewView.js';
 import addTodoView from './Views/addTodoView.js';
 import deleteTodoView from './Views/deleteTodoView.js';
 import dragDropView from './Views/dragDropView.js';
-import sidebarView from './Views/sidebarView.js';
 import editTodoView from './Views/editTodoView.js';
 import dropDownView from './Views/dropDownView.js';
 
@@ -14,7 +13,6 @@ const controlShowTodo = async function() {
   todoView.renderSpinner();
   progressView.renderSpinner();
   doneView.renderSpinner();
-	await model.loadProjects();
   await model.loadTodos();
   const todos = catTodos();
   todoView.render(todos.todo);
@@ -79,12 +77,12 @@ const controlDropDown = async function() {
 	dropDownView.populatedDropDown(model.state.projects);
 };
 
+
 const init = function() {
   previewView.addHandlerRender(controlShowTodo);
   addTodoView.addHandlerClick(controlAddTodo);
   deleteTodoView.addHandlerDelete(controlDeleteTodo);
   dragDropView.addHandlerDragOver(controlDragnDrop);
-  sidebarView.toggleSidebar();
   editTodoView.addHandlerEdit(controlEditTodo);
 	controlDropDown();
 };

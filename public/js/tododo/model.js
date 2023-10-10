@@ -1,5 +1,5 @@
 import { AJAX } from './helpers.js';
-import { API_URL, PROJECT_URL } from './config.js';
+import { API_URL, PROJECT_URL, USER_URL } from './config.js';
 
 export const state = {
     todos: [],
@@ -7,7 +7,7 @@ export const state = {
 };
 
 const createTodoObject = function(todo) {
-	const project = state.projects.find(project => project.id === todo.project_id);
+	console.log(todo);
     return {
         id: todo.id,
         title: todo.title,
@@ -17,7 +17,7 @@ const createTodoObject = function(todo) {
         deadline: new Date(todo.deadline),
         tag: todo.tag,
 				projectId: todo.project_id,
-				project: project || {},
+				project: todo.project,
     }
 }
 
@@ -42,6 +42,7 @@ const storeTodos = function(data) {
 export const loadTodos = async function() {
    try {
         const data = await AJAX(`${API_URL}`);
+		 console.log(data);
         state.todos = storeTodos(data.data);
     } catch (err) {
         console.error(err);
