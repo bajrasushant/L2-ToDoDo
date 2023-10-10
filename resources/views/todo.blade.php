@@ -98,7 +98,7 @@
 				</div>
 
 <!-- modals place -->
-		@include('modals');
+		@include('modals')
 				<div id="deleteOverlay"></div>
 				<div id="editOverlay"></div>
 			</div>
