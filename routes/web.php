@@ -16,9 +16,6 @@ use App\Http\Controllers\AuthManager;
 // Route::get('/', function () {
 //   return view('login');
 // })->name('login');
-Route::get('/', function() {
-	return view('userLogin');
-})->name('userLogin');
 
 // Route::get('/home', function() {
 //   return view('home');
@@ -39,21 +36,26 @@ Route::get('/', function() {
 // Route::post('/register', [AuthManager::class, 'registerPost'])->name('register.post');
 
 // Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
-
 // Route::middleware(['auth:sanctum'])->group(function () {
-  // Define your protected routes here
-  Route::get('/home', function() {
-    return view('home');
-  })->name('home');
+// Define your protected routes here
+//
 
-  Route::get('/todo', function() {
-      return view('todo');
-  })->name('todo');
+Route::get('/', function () {
+	return view('userLogin');
+})->name('userLogin');
+
+Route::get('/home', function () {
+	return view('home');
+})->name('home');
+
+Route::get('/todo', function () {
+	return view('todo');
+})->name('todo');
 
 
-  Route::get('/projects', function() {
-      return view('project');
-  })->name('project');
+Route::get('/projects', function () {
+	return view('project');
+})->name('project');
 
 // });
 
