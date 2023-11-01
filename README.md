@@ -52,7 +52,7 @@ composer install
 	DB_DATABASE=your_db_name
 	DB_USERNAME=root
 	DB_PASSWORD=
-```
+	```
 
 6. Generate new application key
 ```bash
